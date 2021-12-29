@@ -1,3 +1,9 @@
+//FONT INTER
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+//FONT LEXEND DECA
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
 *,
 ::after,
 ::before {
@@ -12,205 +18,165 @@ html {
 }
 
 body {
-  font-family: "Red Hat Display", sans-serif;
+  background: $veryDarkBlue;
   overflow-x: hidden;
-  color: $desaturatedBlue;
 }
 
 main {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("https://raw.githubusercontent.com/MizAndhre/Order-summary-component/de03b87570c21dce7dc9ab2172f87f048da4b92c/images/pattern-background-desktop.svg");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: $paleBlue;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @include breakpoint-down(medium) {
-    background-image: url("https://raw.githubusercontent.com/MizAndhre/Order-summary-component/de03b87570c21dce7dc9ab2172f87f048da4b92c/images/pattern-background-mobile.svg");
-  }
+  width: 100vw;
+  height: 100vh;
 }
 
-//Order component
-.order {
-  &-container {
+.card {
+  width: 32.7rem;
+  height: 78rem;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  @media (min-width: 64em) {
+    width: 110.9rem;
+    height: 44.6rem;
+    display: flex;
+  }
+
+  &__img {
     width: 32.7rem;
-    height: 56.7rem;
-    background-color: $white;
-    border-radius: 1.5rem;
+    height: 24rem;
+    position: relative;
+    order: 2;
 
-    @include breakpoint-up(large) {
-      width: 45rem;
-      height: 69.7rem;
+    @media (min-width: 64em) {
+      width: 54rem;
+      height: 44.6rem;
     }
-  }
 
-  // Image
-  &-img {
-    width: 100%;
-    height: 16rem;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
-    overflow: hidden;
-
-    img {
+    &__mobile {
       width: 100%;
+
+      @media (min-width: 64em) {
+        display: none;
+      }
     }
 
-    @include breakpoint-up(large) {
-      height: 22rem;
+    &__desktop {
+      display: none;
+
+      @media (min-width: 64em) {
+        display: block;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($color: $softViolet, $alpha: 0.8);
+      mix-blend-mode: multiply;
     }
   }
 
-  //Content
-  &-content {
-    padding: 3rem 2.3rem;
+  &__content {
+    padding: 3.7rem 3rem;
     text-align: center;
+    background-color: $darkDesaturatedBlue;
 
-    @include breakpoint-up(large) {
-      padding: 4.5rem 4.8rem;
+    @media (min-width: 64em) {
+      padding: 7.5rem 12rem 6.4rem 7rem;
+      text-align: start;
     }
 
     > h1 {
-      font-weight: 900;
-      color: $darkBlue;
-      font-size: 2.2rem;
-      padding-bottom: 1.8rem;
+      font-family: $font-inter;
+      font-size: 2.8rem;
+      color: $white;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 1.9rem;
 
-      @include breakpoint-up(large) {
-        font-size: 2.7rem;
-        padding-bottom: 1.8rem;
+      @media (min-width: 64em) {
+        font-size: 3.6rem;
+        margin-bottom: 3rem;
+      }
+
+      > span {
+        color: $softViolet;
       }
     }
 
     > p {
-      font-size: 1.6rem;
-      font-weight: 500;
+      font-family: $font-inter;
+      font-size: 1.5rem;
+      font-weight: 400;
       line-height: 1.6;
-      padding: 0 0.8rem;
+      color: $slightlyTransparentWhite-p;
+      margin-bottom: 4rem;
 
-      @include breakpoint-up(large) {
-        font-size: 1.7rem;
+      @media (min-width: 64em) {
+        margin-bottom: 7rem;
       }
     }
+  }
 
-    &-plan {
-      width: 100%;
-      margin: 2.4rem 0;
-      background-color: $veryPaleBlue;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-
-      @include breakpoint-up(large) {
-        padding: 2.2rem;
-        margin-bottom: 3rem;
-      }
-
-      &-text {
-        padding-left: 1.5rem;
-
-        @include breakpoint-up(large) {
-          padding-left: 2.1rem;
-        }
-
-        > h2 {
-          padding-bottom: 0.5rem;
-          color: $darkBlue;
-          font-size: 1.5rem;
-          font-weight: 700;
-
-          @include breakpoint-up(large) {
-            font-size: 1.7rem;
-            padding-bottom: 0.5rem;
-          }
-        }
-
-        > p {
-          font-size: 1.4rem;
-          font-weight: 500;
-
-          @include breakpoint-up(large) {
-            font-size: 1.7rem;
-          }
-        }
-      }
-
-      > span {
-        display: inline-block;
-        padding-left: 4.5rem;
-        text-align: end;
-        font-size: 1.3rem;
-        text-decoration: underline;
-        color: $brightBlue;
-        font-weight: 700;
-
-        @include breakpoint-up(large) {
-          padding-left: 8.6rem;
-          font-size: 1.4rem;
-        }
-
-        &:hover {
-          cursor: pointer;
-          text-decoration: none;
-          opacity: 0.7;
-        }
-      }
+  &__features {
+    @media (min-width: 64em) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 5rem;
     }
 
-    &-payment {
-      > button {
-        font-family: inherit;
-        width: 100%;
-        padding: 1.6rem 0;
-        margin-bottom: 2rem;
-        background-color: $brightBlue;
-        font-size: 1.5rem;
+    &__component {
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+
+        @media (min-width: 64em) {
+          margin-bottom: 0rem;
+        }
+      }
+
+      > h2 {
+        font-family: $font-inter;
+        font-size: 2.5rem;
         font-weight: 700;
         color: $white;
-        border: none;
-        border-radius: 1rem;
-        box-shadow: 0 10px 10px 10px rgba($brightBlue, 0.15);
-
-        @include breakpoint-up(large) {
-          margin-bottom: 2.9rem;
-        }
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.7;
-        }
+        margin-bottom: 0.5rem;
       }
-      > p {
-        font-size: 1.5rem;
-        font-weight: 900;
 
-        &:hover {
-          cursor: pointer;
-          color: $darkBlue;
-        }
+      > p {
+        font-family: $font-deca;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        color: $slightlyTransparentWhite-hd;
       }
     }
   }
 }
 
-.attribution{
+.attribution {
   text-align: center;
-  font-size: 1.4rem;
-  background-color: $paleBlue;
-  padding-bottom: 2rem;
+  font-size: 1.5rem;
+  background-color: $veryDarkBlue;
+  padding: 0 2rem 2rem;
   font-weight: 500;
+  color: $slightlyTransparentWhite-hd;
 
-  a{
+  a {
     text-decoration: none;
-    color: $darkBlue;
+    color: $slightlyTransparentWhite-p;
 
-    &:hover{
-      color: $brightBlue;
+    &:hover {
+      color: $softViolet;
     }
+  }
+
+  i {
+    margin-top: 0.8rem;
+    font-size: 1.8rem;
+    padding-right: 0.5rem;
   }
 }

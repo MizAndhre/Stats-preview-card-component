@@ -10,4 +10,9 @@ $softViolet: hsl(277, 64%, 61%); //(accent)
 
 $white: hsl(0, 0%, 100%); //(main heading, stats)
 $slightlyTransparentWhite-p: hsla(0, 0%, 100%, 0.75);
-$slightlyTransparentWhite-hd: hsla(0, 0%, 100%, 0.6);
+$slightlyTransparentWhite-hd: hsla(0, 0%, 100%, 0.6); //stat headings
+
+// FONT
+
+$font-deca: 'Lexend Deca', sans-serif;
+$font-inter: 'Inter', sans-serif;
